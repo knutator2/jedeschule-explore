@@ -1,0 +1,19 @@
+<!--<div class="row">-->
+<!--  <div class="col-md-12">-->
+    <div class="card" style="margin: 10px 0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label style="float: left">Stratifizieren</label>
+              <ng-select [multiple]="false" [closeOnSelect]="true"
+                         placeholder="Keine Auswahl" (change)="onStratify($event)">
+                <ng-option *ngFor="let item of data.stratifyableDimensionNames" [value]="item">{{textForDimension(item)}}</ng-option>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--  </div>-->
+<!--</div>-->

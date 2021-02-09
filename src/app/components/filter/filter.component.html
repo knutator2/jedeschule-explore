@@ -1,0 +1,118 @@
+<!--<div class="row">-->
+<!--  <div class="col-md-12">-->
+    <div class="card" style="margin: 10px 0">
+      <div class="card-header">
+        Filter
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group">
+              <label>Stadt</label>
+              <ng-select [multiple]="true" [items]="cityLookups" [closeOnSelect]="false" bindValue="key"
+                         placeholder="Keine Auswahl" [ngModel]="filter.city"
+                         (ngModelChange)="updateFilter({city: emptyArrayToNull($event)})">
+                <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                  <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 2">
+                    <span class="ng-value-label">{{items.length - 2}} mehr</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-value="item">
+                  <input type="checkbox" [ngModel]="item$.selected" /> {{item}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group">
+              <label>Schultyp</label>
+              <ng-select [multiple]="true" [items]="schoolTypeLookups" [closeOnSelect]="false" bindValue="key"
+                         placeholder="Keine Auswahl" [ngModel]="filter.schoolType"
+                         (ngModelChange)="updateFilter({schoolType: emptyArrayToNull($event)})">
+                <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                  <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 2">
+                    <span class="ng-value-label">{{items.length - 2}} mehr</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-value="item">
+                  <input type="checkbox" [ngModel]="item$.selected" /> {{item}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group">
+              <label>Legal Status</label>
+              <ng-select [multiple]="true" [items]="legalStatusLookups" [closeOnSelect]="false" bindValue="key"
+                         placeholder="Keine Auswahl" [ngModel]="filter.legalStatus"
+                         (ngModelChange)="updateFilter({legalStatus: emptyArrayToNull($event)})">
+                <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                  <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 2">
+                    <span class="ng-value-label">{{items.length - 2}} mehr</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-value="item">
+                  <input type="checkbox" [ngModel]="item$.selected" /> {{item}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group">
+              <label>Provider</label>
+              <ng-select [multiple]="true" [items]="providerLookups" [closeOnSelect]="false" bindValue="key"
+                         placeholder="Keine Auswahl" [ngModel]="filter.provider"
+                         (ngModelChange)="updateFilter({provider: emptyArrayToNull($event)})">
+                <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                  <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 2">
+                    <span class="ng-value-label">{{items.length - 2}} mehr</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-value="item">
+                  <input type="checkbox" [ngModel]="item$.selected" /> {{item}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group">
+              <label>Provider</label>
+              <ng-select [multiple]="true" [items]="zipLookups" [closeOnSelect]="false" bindValue="key"
+                         placeholder="Keine Auswahl" [ngModel]="filter.zip"
+                         (ngModelChange)="updateFilter({zip: emptyArrayToNull($event)})">
+                <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                  <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 2">
+                    <span class="ng-value-label">{{items.length - 2}} mehr</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-value="item">
+                  <input type="checkbox" [ngModel]="item$.selected" /> {{item}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--  </div>-->
+<!--</div>-->
