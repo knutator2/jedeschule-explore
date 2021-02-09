@@ -5,7 +5,7 @@ var del = require("del");
 
 gulp.task("es5es2015", function () {
   return gulp
-    .src("./dist/ivena-explore/index.html")
+    .src("./dist/jedeschule-explore/index.html")
     .pipe(
       inline({
         css: {
@@ -21,7 +21,7 @@ gulp.task("es5es2015", function () {
 
 gulp.task("es5", function () {
   return gulp
-    .src("./dist/ivena-explore/index.html")
+    .src("./dist/jedeschule-explore/index.html")
     .pipe(
       inline({
         css: {
@@ -41,7 +41,7 @@ gulp.task("es5", function () {
 
 gulp.task("es2015", function () {
   return gulp
-    .src("./dist/ivena-explore/index.html")
+    .src("./dist/jedeschule-explore/index.html")
     .pipe(
       inline({
         css: {

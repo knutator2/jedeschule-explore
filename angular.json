@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ivena-explore": {
+    "jedeschule-explore": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/ivena-explore",
+            "outputPath": "dist/jedeschule-explore",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -77,18 +77,18 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "ivena-explore:build"
+            "browserTarget": "jedeschule-explore:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ivena-explore:build:production"
+              "browserTarget": "jedeschule-explore:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ivena-explore:build"
+            "browserTarget": "jedeschule-explore:build"
           }
         },
         "test": {
@@ -127,16 +127,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ivena-explore:serve"
+            "devServerTarget": "jedeschule-explore:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ivena-explore:serve:production"
+              "devServerTarget": "jedeschule-explore:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "ivena-explore"
+  "defaultProject": "jedeschule-explore"
 }

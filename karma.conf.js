@@ -19,7 +19,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ivena-explore'),
+      dir: require('path').join(__dirname, './coverage/jedeschule-explore'),
       subdir: '.',
       reporters: [
         { type: 'html' },
