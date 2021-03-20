@@ -30,6 +30,7 @@ import { WidgetLegalStatusComponent } from './components/widget-legal-status/wid
 import { WidgetProviderComponent } from './components/widget-provider/widget-provider.component';
 import { WidgetZipComponent } from './components/widget-zip/widget-zip.component';
 import { WidgetLinelistComponent } from './components/widget-linelist/widget-linelist.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 registerLocaleData(localeDe);
 
 @NgModule({
@@ -45,7 +46,8 @@ registerLocaleData(localeDe);
     WidgetLegalStatusComponent,
     WidgetProviderComponent,
     WidgetZipComponent,
-    WidgetLinelistComponent
+    WidgetLinelistComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -81,6 +81,10 @@ export abstract class WidgetBarComponent implements OnChanges {
         //this.chartOption.series[0] = this.data;
         //this.chartOption = { ...this.chartOption };
         //console.log(this.chartOption);
+        if (changes.data) {
+            console.log(this.data);
+            this.data = this.data.filter(x => x.value > 0);
+        }
 
     }
 

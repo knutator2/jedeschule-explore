@@ -1,40 +1,52 @@
 <app-nav></app-nav>
 <div class="row">
-  <div class="col-md-9">
-    <app-filter [data]="data" [filter]="data.filter" (onFilterChanged)="data.filter = $event"></app-filter>
-  </div>
-  <div class="col-md-3">
-    <app-stratify [data]="data" ></app-stratify>
-  </div>
+    <div class="col-md-12" *ngIf="loading">
+        <app-loading-spinner></app-loading-spinner>
+    </div>
 </div>
+<div class="ng-container" *ngIf="!loading">
+    <div class="row">
+        <div class="col-md-9">
+            <app-filter [data]="data" [filter]="data.filter" (onFilterChanged)="data.filter = $event"></app-filter>
+        </div>
+        <div class="col-md-3">
+            <app-stratify [data]="data"></app-stratify>
+        </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <app-widget-city [data]="data.city" (onFilterChanged)="this.data.filter = $event" [filter]="data.filter"></app-widget-city>
-  </div>
-  <div class="col-md-6">
-    <app-widget-school-type [data]="data.schoolType" (onFilterChanged)="this.data.filter = $event" [filter]="data.filter"></app-widget-school-type>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-widget-city [data]="data.city" (onFilterChanged)="this.data.filter = $event"
+                             [filter]="data.filter"></app-widget-city>
+        </div>
+        <div class="col-md-6">
+            <app-widget-school-type [data]="data.schoolType" (onFilterChanged)="this.data.filter = $event"
+                                    [filter]="data.filter"></app-widget-school-type>
+        </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <app-widget-legal-status [data]="data.legalStatus" (onFilterChanged)="this.data.filter = $event" [filter]="data.filter" ></app-widget-legal-status>
-  </div>
-  <div class="col-md-6">
-    <app-widget-provider [data]="data.provider" (onFilterChanged)="this.data.filter = $event" [filter]="data.filter"></app-widget-provider>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-widget-legal-status [data]="data.legalStatus" (onFilterChanged)="this.data.filter = $event"
+                                     [filter]="data.filter"></app-widget-legal-status>
+        </div>
+        <div class="col-md-6">
+            <app-widget-provider [data]="data.provider" (onFilterChanged)="this.data.filter = $event"
+                                 [filter]="data.filter"></app-widget-provider>
+        </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <app-widget-zip [data]="data.zip" (onFilterChanged)="this.data.filter = $event" [filter]="data.filter"></app-widget-zip>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-widget-zip [data]="data.zip" (onFilterChanged)="this.data.filter = $event"
+                            [filter]="data.filter"></app-widget-zip>
+        </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <app-widget-linelist [data]="data.all"></app-widget-linelist>
-  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-widget-linelist [data]="data.all"></app-widget-linelist>
+        </div>
+    </div>
 </div>
 

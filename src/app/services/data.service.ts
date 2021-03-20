@@ -13,22 +13,28 @@ export class DataService{
 
   constructor(private http: HttpClient) {
     console.log('creating dataService');
-    this.http.get<School[]>('https://jedeschule.codefor.de/schools/?limit=40000').subscribe(x => {
+    this.http.get<School[]>('https://jedeschule.codefor.de/schools/?limit=50000').subscribe(x => {
       console.log('retrieving schools');
       x = x.map((school: School) => {
-        school.school_type = school.school_type === null ? 'Unbekannt' : school.school_type;
-        school.legal_status = school.legal_status === null || !school.legal_status ? 'Unbekannt' : school.legal_status;
-        school.provider = school.provider === null || !school.provider ? 'Unbekannt' : school.provider;
-        school.zip = school.zip === null || !school.zip ? 'Unbekannt' : school.zip;
+        // school.school_type = !school.school_type || school.school_type === null || school.school_type === '' ? 'Unbekannt' : school.school_type;
+        school.school_type = this.cleanDataValue(school.school_type);
+        school.legal_status = this.cleanDataValue(school.legal_status);
+        school.provider = this.cleanDataValue(school.provider);
+        school.zip = this.cleanDataValue(school.zip);
         return school;
-      })
+      });
+      console.log(x);
       this.schools.next(x);
     });
   }
 
   getSchools(): Observable<School[]> {
     return this.schools.asObservable();
-}
+  }
+
+  cleanDataValue(val) {
+    return !val || val === null || val === '' ? 'Unbekannt' : val;
+  }
 
 
 }

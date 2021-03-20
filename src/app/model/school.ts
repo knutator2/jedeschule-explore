@@ -13,5 +13,4 @@ export interface School {
     fax: string;
     phone: string;
     director: string;
-    raw: any;
 }

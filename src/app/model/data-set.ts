@@ -47,7 +47,8 @@ export class DataSet {
 
   constructor(data: School[], filter?: DataFilter) {
     this._crossfilterDs = crossfilter(data);
-    console.log(data);
+    // console.log(data);
+    // console.log(this._crossfilterDs.all());
     const dimensionProperties: { name: string, selector: (x: School) => any }[] = [
       { name: 'city', selector: x => x.city },
       { name: 'legalStatus', selector: x => x.legal_status },
@@ -55,14 +56,12 @@ export class DataSet {
       { name: 'provider', selector: x => x.provider },
       { name: 'zip', selector: x => x.zip }
     ];
-
-    // this._genderDimension = this._crossfilterDs.dimension((x: any) => x.geschlecht_id);
-    // this._genderGroup = this._genderDimension.group();
-    // this.allDimensions.push(this._genderDimension);
     //
     for (const dimensionObj of dimensionProperties) {
       const dimension = this._crossfilterDs.dimension(dimensionObj.selector);
+      //console.log(dimension.group.top(Infinity));
       const group = dimension.group();
+      console.log(group);
       this.dimensions.push(
         {
           name: dimensionObj.name,

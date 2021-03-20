@@ -12,7 +12,7 @@ import {combineLatest} from 'rxjs';
 export class DashboardComponent implements OnInit {
 
   data: DataSet = new DataSet([]);
-
+  loading = true;
 
   constructor(private dataService: DataService) {
     console.log('creating dashboard');
@@ -24,7 +24,10 @@ export class DashboardComponent implements OnInit {
       (schools) => {
         console.log(schools);
         this.data = new DataSet(schools);
-        this.data.filter = new DataFilter();
+        //this.data.filter = new DataFilter();
+        if (schools.length > 0) {
+          this.loading = false;
+        }
       }
     );
   }
