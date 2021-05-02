@@ -31,6 +31,7 @@ import { WidgetProviderComponent } from './components/widget-provider/widget-pro
 import { WidgetZipComponent } from './components/widget-zip/widget-zip.component';
 import { WidgetLinelistComponent } from './components/widget-linelist/widget-linelist.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { WidgetMapComponent } from './components/widget-map/widget-map.component';
 registerLocaleData(localeDe);
 
 @NgModule({
@@ -47,7 +48,8 @@ registerLocaleData(localeDe);
     WidgetProviderComponent,
     WidgetZipComponent,
     WidgetLinelistComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    WidgetMapComponent
   ],
   imports: [
     BrowserModule,
