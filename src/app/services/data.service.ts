@@ -27,7 +27,7 @@ export class DataService{
     //   console.log(x);
     //   this.schools.next(x);
     // });
-    this.http.get('https://jedeschule.codefor.de/csv-data/jedeschule-data.csv', { responseType: 'text' } ).subscribe((x: string) => {
+    this.http.get('https://jedeschule.codefor.de/csv-data/latest.csv', { responseType: 'text' } ).subscribe((x: string) => {
       console.log('retrieving schools');
       const schools = this.papa.parse(x, {header: true}).data;
       schools.splice(-1, 1);
